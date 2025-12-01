@@ -78,10 +78,69 @@
     <addaction name="action_About"/>
     <addaction name="action_AboutQt"/>
    </widget>
+   <widget class="QMenu" name="menu_Format">
+    <property name="title">
+     <string>格式(&amp;O)</string>
+    </property>
+    <addaction name="action_Bold"/>
+    <addaction name="action_Italic"/>
+    <addaction name="action_Underline"/>
+    <addaction name="action_StrikeThrough"/>
+    <addaction name="separator"/>
+    <addaction name="action_AlignLeft"/>
+    <addaction name="action_AlignCenter"/>
+    <addaction name="action_AlignRight"/>
+    <addaction name="action_AlignJustify"/>
+    <addaction name="separator"/>
+    <addaction name="action_FontColor"/>
+    <addaction name="action_Highlight"/>
+   </widget>
+   <widget class="QMenu" name="menu_Insert">
+    <property name="title">
+     <string>插入(&amp;I)</string>
+    </property>
+    <addaction name="action_InsertImage"/>
+    <addaction name="action_InsertLink"/>
+    <addaction name="action_InsertTable"/>
+    <addaction name="separator"/>
+    <addaction name="action_InsertBulletList"/>
+    <addaction name="action_InsertNumberedList"/>
+    <addaction name="separator"/>
+    <addaction name="action_InsertCode"/>
+    <addaction name="action_InsertDateTime"/>
+   </widget>
+   <widget class="QMenu" name="menu_Tools">
+    <property name="title">
+     <string>工具(&amp;T)</string>
+    </property>
+    <addaction name="action_SpellCheck"/>
+    <addaction name="action_WordCount"/>
+    <addaction name="separator"/>
+    <addaction name="action_SortLines"/>
+    <addaction name="separator"/>
+    <addaction name="action_ConvertUppercase"/>
+    <addaction name="action_ConvertLowercase"/>
+    <addaction name="action_ConvertTitleCase"/>
+   </widget>
+   <widget class="QMenu" name="menu_Navigation">
+    <property name="title">
+     <string>導覽(&amp;N)</string>
+    </property>
+    <addaction name="action_GoToLine"/>
+    <addaction name="separator"/>
+    <addaction name="action_AddBookmark"/>
+    <addaction name="action_PrevBookmark"/>
+    <addaction name="action_NextBookmark"/>
+    <addaction name="action_ClearBookmarks"/>
+   </widget>
    <addaction name="menu_F"/>
    <addaction name="menu_E"/>
+   <addaction name="menu_Format"/>
+   <addaction name="menu_Insert"/>
    <addaction name="menu_Search"/>
    <addaction name="menu_View"/>
+   <addaction name="menu_Tools"/>
+   <addaction name="menu_Navigation"/>
    <addaction name="menu_Help"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -146,6 +205,84 @@
    <addaction name="action_ZoomIn"/>
    <addaction name="action_ZoomOut"/>
    <addaction name="action_ZoomReset"/>
+  </widget>
+  <widget class="QToolBar" name="formatToolBar">
+   <property name="windowTitle">
+    <string>格式工具列</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_Bold"/>
+   <addaction name="action_Italic"/>
+   <addaction name="action_Underline"/>
+   <addaction name="action_StrikeThrough"/>
+   <addaction name="separator"/>
+   <addaction name="action_AlignLeft"/>
+   <addaction name="action_AlignCenter"/>
+   <addaction name="action_AlignRight"/>
+   <addaction name="action_AlignJustify"/>
+   <addaction name="separator"/>
+   <addaction name="action_FontColor"/>
+   <addaction name="action_Highlight"/>
+  </widget>
+  <widget class="QToolBar" name="insertToolBar">
+   <property name="windowTitle">
+    <string>插入工具列</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_InsertImage"/>
+   <addaction name="action_InsertLink"/>
+   <addaction name="action_InsertTable"/>
+   <addaction name="separator"/>
+   <addaction name="action_InsertBulletList"/>
+   <addaction name="action_InsertNumberedList"/>
+   <addaction name="separator"/>
+   <addaction name="action_InsertCode"/>
+   <addaction name="action_InsertDateTime"/>
+  </widget>
+  <widget class="QToolBar" name="toolsToolBar">
+   <property name="windowTitle">
+    <string>工具工具列</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_SpellCheck"/>
+   <addaction name="action_WordCount"/>
+   <addaction name="action_SortLines"/>
+   <addaction name="separator"/>
+   <addaction name="action_ConvertUppercase"/>
+   <addaction name="action_ConvertLowercase"/>
+   <addaction name="action_ConvertTitleCase"/>
+  </widget>
+  <widget class="QToolBar" name="navigationToolBar">
+   <property name="windowTitle">
+    <string>導覽工具列</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_GoToLine"/>
+   <addaction name="separator"/>
+   <addaction name="action_AddBookmark"/>
+   <addaction name="action_PrevBookmark"/>
+   <addaction name="action_NextBookmark"/>
+   <addaction name="action_ClearBookmarks"/>
   </widget>
   <action name="action_New">
    <property name="text">
@@ -403,6 +540,278 @@
    </property>
    <property name="toolTip">
     <string>關於 Qt 框架</string>
+   </property>
+  </action>
+  <action name="action_Bold">
+   <property name="text">
+    <string>粗體(&amp;B)</string>
+   </property>
+   <property name="toolTip">
+    <string>粗體文字</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="action_Italic">
+   <property name="text">
+    <string>斜體(&amp;I)</string>
+   </property>
+   <property name="toolTip">
+    <string>斜體文字</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="action_Underline">
+   <property name="text">
+    <string>底線(&amp;U)</string>
+   </property>
+   <property name="toolTip">
+    <string>底線文字</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="action_StrikeThrough">
+   <property name="text">
+    <string>刪除線(&amp;K)</string>
+   </property>
+   <property name="toolTip">
+    <string>刪除線文字</string>
+   </property>
+  </action>
+  <action name="action_AlignLeft">
+   <property name="text">
+    <string>靠左對齊(&amp;L)</string>
+   </property>
+   <property name="toolTip">
+    <string>靠左對齊</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="action_AlignCenter">
+   <property name="text">
+    <string>置中(&amp;C)</string>
+   </property>
+   <property name="toolTip">
+    <string>置中對齊</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="action_AlignRight">
+   <property name="text">
+    <string>靠右對齊(&amp;R)</string>
+   </property>
+   <property name="toolTip">
+    <string>靠右對齊</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="action_AlignJustify">
+   <property name="text">
+    <string>左右對齊(&amp;J)</string>
+   </property>
+   <property name="toolTip">
+    <string>左右對齊</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+J</string>
+   </property>
+  </action>
+  <action name="action_FontColor">
+   <property name="text">
+    <string>字型顏色(&amp;F)</string>
+   </property>
+   <property name="toolTip">
+    <string>設定字型顏色</string>
+   </property>
+  </action>
+  <action name="action_Highlight">
+   <property name="text">
+    <string>螢光標示(&amp;H)</string>
+   </property>
+   <property name="toolTip">
+    <string>螢光標示文字</string>
+   </property>
+  </action>
+  <action name="action_InsertImage">
+   <property name="text">
+    <string>插入圖片(&amp;I)</string>
+   </property>
+   <property name="toolTip">
+    <string>插入圖片</string>
+   </property>
+  </action>
+  <action name="action_InsertLink">
+   <property name="text">
+    <string>插入連結(&amp;L)</string>
+   </property>
+   <property name="toolTip">
+    <string>插入超連結</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+K</string>
+   </property>
+  </action>
+  <action name="action_InsertTable">
+   <property name="text">
+    <string>插入表格(&amp;T)</string>
+   </property>
+   <property name="toolTip">
+    <string>插入表格</string>
+   </property>
+  </action>
+  <action name="action_InsertBulletList">
+   <property name="text">
+    <string>項目符號清單(&amp;B)</string>
+   </property>
+   <property name="toolTip">
+    <string>插入項目符號清單</string>
+   </property>
+  </action>
+  <action name="action_InsertNumberedList">
+   <property name="text">
+    <string>編號清單(&amp;N)</string>
+   </property>
+   <property name="toolTip">
+    <string>插入編號清單</string>
+   </property>
+  </action>
+  <action name="action_InsertCode">
+   <property name="text">
+    <string>插入程式碼(&amp;C)</string>
+   </property>
+   <property name="toolTip">
+    <string>插入程式碼區塊</string>
+   </property>
+  </action>
+  <action name="action_InsertDateTime">
+   <property name="text">
+    <string>插入日期時間(&amp;D)</string>
+   </property>
+   <property name="toolTip">
+    <string>插入目前日期和時間</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="action_SpellCheck">
+   <property name="text">
+    <string>拼字檢查(&amp;S)</string>
+   </property>
+   <property name="toolTip">
+    <string>執行拼字檢查</string>
+   </property>
+   <property name="shortcut">
+    <string>F7</string>
+   </property>
+  </action>
+  <action name="action_WordCount">
+   <property name="text">
+    <string>字數統計(&amp;W)</string>
+   </property>
+   <property name="toolTip">
+    <string>顯示字數統計</string>
+   </property>
+  </action>
+  <action name="action_SortLines">
+   <property name="text">
+    <string>排序行(&amp;O)</string>
+   </property>
+   <property name="toolTip">
+    <string>排序選取的行</string>
+   </property>
+  </action>
+  <action name="action_ConvertUppercase">
+   <property name="text">
+    <string>轉換為大寫(&amp;U)</string>
+   </property>
+   <property name="toolTip">
+    <string>將選取文字轉換為大寫</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+U</string>
+   </property>
+  </action>
+  <action name="action_ConvertLowercase">
+   <property name="text">
+    <string>轉換為小寫(&amp;L)</string>
+   </property>
+   <property name="toolTip">
+    <string>將選取文字轉換為小寫</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+L</string>
+   </property>
+  </action>
+  <action name="action_ConvertTitleCase">
+   <property name="text">
+    <string>轉換為標題大小寫(&amp;T)</string>
+   </property>
+   <property name="toolTip">
+    <string>將選取文字轉換為標題大小寫</string>
+   </property>
+  </action>
+  <action name="action_GoToLine">
+   <property name="text">
+    <string>前往行(&amp;G)</string>
+   </property>
+   <property name="toolTip">
+    <string>前往指定行號</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="action_AddBookmark">
+   <property name="text">
+    <string>新增書籤(&amp;A)</string>
+   </property>
+   <property name="toolTip">
+    <string>在目前位置新增書籤</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+B</string>
+   </property>
+  </action>
+  <action name="action_PrevBookmark">
+   <property name="text">
+    <string>上一個書籤(&amp;P)</string>
+   </property>
+   <property name="toolTip">
+    <string>前往上一個書籤</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+,</string>
+   </property>
+  </action>
+  <action name="action_NextBookmark">
+   <property name="text">
+    <string>下一個書籤(&amp;N)</string>
+   </property>
+   <property name="toolTip">
+    <string>前往下一個書籤</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+.</string>
+   </property>
+  </action>
+  <action name="action_ClearBookmarks">
+   <property name="text">
+    <string>清除所有書籤(&amp;C)</string>
+   </property>
+   <property name="toolTip">
+    <string>清除所有書籤</string>
    </property>
   </action>
  </widget>
