@@ -42,3 +42,30 @@
 
 # CodeQL
 _codeql_detected_source_root
+
+# Qt Creator user files
+*.pro.user
+*.pro.user.*
+
+# Qt generated files
+Makefile*
+.qmake.stash
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+!ui_ui_mainwindow.h
+
+# Build directories
+build/
+debug/
+release/
+Debug/
+Release/
+
+# Qt Creator cache
+.qtc_clangd/
+
+# OS specific
+Thumbs.db
+.DS_Store
