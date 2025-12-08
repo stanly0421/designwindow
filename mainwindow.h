@@ -14,6 +14,7 @@ public:
     ~MainWindow();
 
 private slots:
+    void onOpenTriggered();
     void onSaveTriggered();
     void onSaveAsTriggered();
 

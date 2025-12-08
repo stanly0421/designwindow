@@ -86,12 +86,25 @@ MainWindow::MainWindow(QWidget *parent)
     
     textEdit->setStyleSheet(textEditStyle);
     
-    // 連接 Save 和 Save As 動作
+    // 連接 Open, Save 和 Save As 動作
+    connect(action_O, &QAction::triggered, this, &MainWindow::onOpenTriggered);
     connect(action_S, &QAction::triggered, this, &MainWindow::onSaveTriggered);
     connect(action_A, &QAction::triggered, this, &MainWindow::onSaveAsTriggered);
 }
 
 MainWindow::~MainWindow() {}
+
+void MainWindow::onOpenTriggered()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("開啟檔案"), "", tr("文字檔案 (*.txt);;所有檔案 (*.*)"));
+    if (fileName.isEmpty()) return;
+    QFile file(fileName);
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        textEdit->setPlainText(QTextStream(&file).readAll());
+        currentFilePath = fileName;
+        statusbar->showMessage(tr("檔案已開啟: %1").arg(fileName), 3000);
+    } else QMessageBox::warning(this, tr("開啟錯誤"), tr("無法開啟檔案: %1").arg(file.errorString()));
+}
 
 void MainWindow::onSaveTriggered()
 {
